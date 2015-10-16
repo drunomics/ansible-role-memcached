@@ -1,0 +1,9 @@
+# General settings
+---
+
+# memcached
+memcached_memory: "64M"
+
+memcached_max_object_size: "2M"
+memcached_bind_address: '0.0.0.0'
+memcached_port: 11211

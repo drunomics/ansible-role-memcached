@@ -1,0 +1,14 @@
+##
+# Memcached tasks
+#
+---
+- name: Install daemon.
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - memcached
+    - php5-memcache
+  notify: restart PHP server
+
+- name: Configuring memcached.
+  template: src=etc-memcached-conf.j2 dest=/etc/memcached.conf mode=644
+  notify: restart memcached
