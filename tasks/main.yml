@@ -6,7 +6,7 @@
   apt: pkg={{ item }} state=latest
   with_items:
     - memcached
-    - php5-memcache
+    - "{{ 'php5-memcache' if php_version == '5.5' else 'php-memcache' }}"
   notify: restart PHP server
 
 - name: Configuring memcached.
